@@ -1,0 +1,28 @@
+<h3 class="title">Car View</h3>
+
+<div data-ng-controller="View as vm">
+  <table class="table">
+    <tr>
+      <td>Model</td>
+      <td>{{vm.car.model}}</td>
+    </tr>
+    <tr>
+      <td>Wheels</td>
+      <td>{{vm.car.wheels}}</td>
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td>{{vm.car.color}}</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>{{vm.car.price | currency : ''}} €</td>
+    </tr>
+  </table>
+  
+  <a href="/cars/{{vm.car.id}}/delete" class="btn btn-danger">Delete</a>
+  <a href="/cars/{{vm.car.id}}/edit" class="btn btn-warning pull-right">Edit</a>
+</div>
+
+<br>
+<a href="/cars" class="btn-primary btn-lg nodecoration pull-right">List of Cars</a>

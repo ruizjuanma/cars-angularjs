@@ -1,0 +1,12 @@
+<h3 class="title">New Car</h3>
+
+<form name="addCar" data-ng-controller="New as vm" data-ng-submit="addCar.$valid && vm.add()" novalidate>
+  <car-form vm="vm"></car-form>
+  <div class="col-sm-12">
+    <div class="form-group">
+      <input type="submit" class="btn btn-success" value="Add new car" />
+    </div>
+  </div>
+</form>
+
+<a href="/cars" class="btn-primary btn-lg nodecoration pull-right">List of Cars</a>

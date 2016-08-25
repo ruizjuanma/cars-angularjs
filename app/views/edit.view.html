@@ -1,0 +1,15 @@
+<h3 class="title">Edit Car</h3>
+
+<div data-ng-controller="Edit as vm">
+  <form name="updateCar" data-ng-submit="updateCar.$valid && vm.update()" novalidate>
+    <car-form vm="vm"></car-form>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Update car"/>
+      </div>
+    </div>
+  </form>
+
+  <a href="/cars/{{vm.car.id}}" class="btn-info btn-lg nodecoration pull-left">View Car</a>
+  <a href="/cars" class="btn-primary btn-lg nodecoration pull-right">List of Cars</a>
+</div>

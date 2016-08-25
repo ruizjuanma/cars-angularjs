@@ -1,0 +1,31 @@
+<h3 class="title">Car View</h3>
+
+<div data-ng-controller="Delete as vm">
+  <table class="table">
+    <tr>
+      <td>Model</td>
+      <td>{{vm.car.model}}</td>
+    </tr>
+    <tr>
+      <td>Wheels</td>
+      <td>{{vm.car.wheels}}</td>
+    </tr>
+    <tr>
+      <td>Color</td>
+      <td>{{vm.car.color}}</td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td>{{vm.car.price | currency : ''}} €</td>
+    </tr>
+  </table>
+  
+  <div class="alert alert-danger alert-dismissible fade in" role="alert">
+    <h4>Delete Car</h4>
+    <p>Are you sure that you want to delete this car? It will be permanently deleted and the action cannot be undone.</p>
+    <p>
+      <button type="button" data-ng-click="vm.destroy()" class="btn btn-danger">Delete</button>
+      <a href="/cars/{{vm.car.id}}" class="btn btn-default pull-right">Cancel</a>
+    </p>
+  </div>
+</div>

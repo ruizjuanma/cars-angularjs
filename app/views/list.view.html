@@ -1,0 +1,96 @@
+<h3 class="title">List of Cars</h3>
+
+<div data-ng-controller="List as vm">
+  <div class="panel panel-default">
+    <div class="panel-heading">Filter</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="input-group">
+            <label>Model</label>
+            <input type="text" data-ng-model="filterModel" class="form-control" placeholder="Model">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <label>Wheels</label>
+            <input type="text" data-ng-model="filterWheels" class="form-control" placeholder="Wheels">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <label>Color</label>
+            <input type="text" data-ng-model="filterColor" class="form-control" placeholder="Color">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <label>Price</label>
+            <input type="text" data-ng-model="filterPrice" class="form-control" placeholder="Price">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">Sort</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Model</label>
+          <select ng-model="sort" class="form-control">
+            <option value="model">Ascending</option>
+            <option value="-model">Descending</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label>Ruedas</label>
+          <select ng-model="sort" class="form-control">
+            <option value="wheels">Less to more</option>
+            <option value="-wheels">More to less</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label>Color</label>
+          <select ng-model="sort" class="form-control">
+            <option value="color">Alphabetical</option>
+            <option value="-color">Inverse</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label>Price</label>
+          <select ng-model="sort" class="form-control">
+            <option value="price">Low to high</option>
+            <option value="-price">High to low</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Wheels</th>
+        <th>Color</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="car in vm.cars | filter:{model:filterModel, wheels:filterWheels, color:filterColor, price:filterPrice} | orderBy:sort">
+        <td>{{car.model}}</td>
+        <td>{{car.wheels}}</td>
+        <td>{{car.color}}</td>
+        <td>{{car.price | currency : ''}} €</td>
+        <td>
+          <a href="/cars/{{car.id}}" class="btn btn-info">View</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a href="/cars/new" class="btn-primary btn-lg nodecoration pull-right">New Car</a>
+</div>
